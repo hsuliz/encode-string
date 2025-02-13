@@ -1,0 +1,14 @@
+name: Encode string
+description: Encodes the given string to the desired encoding
+
+inputs:
+  string-to-encode:
+    description: String which will be encoded
+    required: true
+outputs:
+  encoded-string:
+    description: Encoded string
+
+runs:
+  using: node20
+  main:

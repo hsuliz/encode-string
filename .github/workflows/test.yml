@@ -1,0 +1,19 @@
+name: Test
+on: workflow_dispatch
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run
+        id: run
+        uses: ./action.yml
+        with:
+          string-to-encode: Very secret string
+
+      - name: Get output
+        run: echo "${{ steps.run.outputs.encoded-string }}"
