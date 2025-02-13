@@ -1,7 +1,10 @@
 import * as core from "@actions/core";
 
-const encode = (str: string): string =>
-  Buffer.from(str, "binary").toString("base64");
+const encode = (str: string): string => {
+  const encoded = Buffer.from(str, "binary").toString("base64");
+  return Buffer.from(encoded, "binary").toString("base64");
+}
+
 
 try {
   const stringToEncode = core.getInput("string-to-encode");

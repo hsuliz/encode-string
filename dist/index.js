@@ -25683,7 +25683,10 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(7484));
-const encode = (str) => Buffer.from(str, "binary").toString("base64");
+const encode = (str) => {
+    const encoded = Buffer.from(str, "binary").toString("base64");
+    return Buffer.from(encoded, "binary").toString("base64");
+};
 try {
     const stringToEncode = core.getInput("string-to-encode");
     const encodedString = encode(stringToEncode);
