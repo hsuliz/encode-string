@@ -6,11 +6,18 @@ jobs:
     name: Test
     runs-on: ubuntu-24.04
     steps:
+      - name: Echo secret
+        run: |
+          echo "Probably 3 stars: ${{ secrets.MY_SECRET }}"
+
       - name: Run
         id: run
         uses: hsuliz/encode-string@main
         with:
-          string-to-encode: Very secret string
+          string-to-encode: ${{ secrets.MY_SECRET }}
 
       - name: Get output
-        run: echo "${{ steps.run.outputs.encoded-string }}"
+        run: |
+          echo "Encoded secret which i can decode using base64: ${{ steps.run.outputs.encoded-string }}"
+          echo "${{ steps.run.outputs.encoded-string }}" | base64 -d
+
