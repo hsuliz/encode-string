@@ -12,7 +12,10 @@ This action prints encodes to base64 given string. It's useful for take secrets 
 
 ### `encoded-string`
 
-Encoded string
+Encoded string. Can be decoded using **double** base 64 like this:
+```shell
+echo "<encoded-string>" | base64 -d | base64 -d
+```
 
 ## Example usage
 

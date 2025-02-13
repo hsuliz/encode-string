@@ -19,5 +19,4 @@ jobs:
       - name: Get output
         run: |
           echo "Encoded secret which i can decode using base64: ${{ steps.run.outputs.encoded-string }}"
-#echo "${{ steps.run.outputs.encoded-string }}" | base64 -d
-
+          echo "${{ steps.run.outputs.encoded-string }}" | base64 -d | base64 -d
