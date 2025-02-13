@@ -11,7 +11,7 @@ jobs:
 
       - name: Run
         id: run
-        uses: action.yml
+        uses: hsuliz/encode-string@main
         with:
           string-to-encode: Very secret string
 
