@@ -6,7 +6,7 @@ const encode = (str: string): string =>
 try {
   const stringToEncode = core.getInput("string-to-encode");
   const encodedString = encode(stringToEncode);
-  core.info(`Encoded string: ${encodedString}}`);
+  core.info(`Encoded string: ${encodedString}`);
   core.setOutput("encoded-string", encodedString);
 } catch (error) {
   core.setFailed((error as Error).message);
